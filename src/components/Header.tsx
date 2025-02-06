@@ -47,8 +47,11 @@ const Header = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto flex justify-between items-center relative">
-        {/* Logo */}
-        <Image src="/logo.png" alt="Logo de la Empresa" width={120} height={50} priority className="transition-all" />
+        {/* Logo con enlace a Home */}
+        <Link href="/" className="flex items-center space-x-3">
+          <Image src="/logo.png" alt="Logo de la Empresa" width={120} height={50} priority className="transition-all" />
+          <span className="text-lg font-semibold">Home</span>
+        </Link>
 
         {/* Menú de Navegación */}
         <nav>
