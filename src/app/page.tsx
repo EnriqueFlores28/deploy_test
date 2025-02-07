@@ -7,7 +7,7 @@ const HeroSection = () => {
       {/* Imagen de fondo */}
       <div className="absolute top-0 left-0 w-full h-full">
         <Image
-          src="/hero.jpeg"
+          src="/Petronas.avif"
           alt="Hero Background"
           layout="fill"
           objectFit="cover"
