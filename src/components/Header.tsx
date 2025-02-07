@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import Image from "next/image";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
@@ -25,17 +23,9 @@ const Header = () => {
       setIsScrolled(window.scrollY > window.innerHeight - 100);
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -55,10 +45,12 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center relative">
         {/* Logo con enlace a Home */}
         <Link href="/" className="flex items-center space-x-3">
-          <img
+          <Image
             src={logoSrc}
             alt="Logo de la Empresa"
-            className="h-10 w-auto transition-all duration-300"
+            width={80}
+            height={40}
+            className="transition-all duration-300"
           />
         </Link>
 
@@ -101,10 +93,7 @@ const Header = () => {
             ].map((menu) => (
               <li key={menu.name} className="relative"
                 onMouseEnter={() => setActiveMenu(menu.name)}
-                onMouseLeave={() => {
-                  setActiveMenu(null);
-                  setActiveSubmenu(null);
-                }}
+                onMouseLeave={() => setActiveMenu(null)}
               >
                 <button
                   className="px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between w-full lg:w-auto"
@@ -119,15 +108,10 @@ const Header = () => {
                     {menu.links.map((link) => (
                       <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
                         {link.sublinks ? (
-                          <div
-                            onMouseEnter={() => setActiveSubmenu(link.name)}
-                            onMouseLeave={() => setActiveSubmenu(null)}
-                          >
-                            <span className="font-semibold flex items-center justify-between">
-                              {link.name}
-                              <HiChevronDown className="ml-2 text-sm" />
-                            </span>
-                          </div>
+                          <span className="font-semibold flex items-center justify-between">
+                            {link.name}
+                            <HiChevronDown className="ml-2 text-sm" />
+                          </span>
                         ) : (
                           <Link href={link.href}>{link.name}</Link>
                         )}
