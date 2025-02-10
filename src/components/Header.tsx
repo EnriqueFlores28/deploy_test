@@ -80,7 +80,7 @@ const Header = () => {
                 name: "services",
                 links: [
                   { name: "Construction", href: "/services/construction" },
-                  { name: "Casapia Market", href: "/services/market" },
+                  { name: "Market", href: "/services/market" },
                   { name: "Warehousing", href: "/services/warehousing" }
                 ]
               },
