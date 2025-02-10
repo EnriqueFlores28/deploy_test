@@ -69,7 +69,7 @@ const Header = () => {
                   { name: "Mission, Vision and Values", href: "/about/mission" },
                   { name: "CEO", href: "/about/ceo" },
                   {
-                    name: "History",
+                    name: "Timeline",
                     sublinks: [
                       { name: "Timeline", href: "/about/history/timeline" }
                     ]
