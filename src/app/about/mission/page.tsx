@@ -7,7 +7,7 @@ const MissionVisionValues = () => {
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow flex flex-col justify-center items-center p-6 sm:p-12 mt-16">
-        <h1 className="text-5xl font-extrabold text-blue-700 mb-12 text-center">Mission, Vision & Values</h1>
+        <h1 className="text-5xl font-extrabold text-black mb-12 text-center">Mission, Vision & Values</h1>
 
         {/* Mission Section */}
         <section className="mb-12 text-center max-w-4xl p-10 bg-white shadow-lg rounded-xl">

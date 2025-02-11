@@ -10,6 +10,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
@@ -31,7 +32,7 @@ const Header = () => {
 
   const headerClass = isHome && !isScrolled && !isHovered
     ? "bg-transparent text-white"
-    : "bg-white shadow-lg text-blue-600";
+    : "bg-primary shadow-lg text-blue-600";
 
   const logoSrc = isHome && !isScrolled && !isHovered ? "/logow.svg" : "/logob.svg";
 
@@ -60,7 +61,7 @@ const Header = () => {
         </button>
 
         {/* Menú de Navegación */}
-        <nav className={`lg:flex space-x-6 absolute lg:relative bg-white lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ${menuOpen ? "block" : "hidden lg:block"}`}>
+        <nav className={`lg:flex space-x-6 absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ${menuOpen ? "block" : "hidden lg:block"}`}>
           <ul className="lg:flex space-x-6 relative">
             {[
               {
@@ -69,7 +70,7 @@ const Header = () => {
                   { name: "Mission, Vision and Values", href: "/about/mission" },
                   { name: "CEO", href: "/about/ceo" },
                   {
-                    name: "Timeline",
+                    name: "History",
                     sublinks: [
                       { name: "Timeline", href: "/about/history/timeline" }
                     ]
@@ -93,7 +94,10 @@ const Header = () => {
             ].map((menu) => (
               <li key={menu.name} className="relative"
                 onMouseEnter={() => setActiveMenu(menu.name)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseLeave={() => {
+                  setActiveMenu(null);
+                  setActiveSubmenu(null);
+                }}
               >
                 <button
                   className="px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between w-full lg:w-auto"
@@ -102,16 +106,28 @@ const Header = () => {
                   <HiChevronDown className="ml-2 text-xl" />
                 </button>
                 <div
-                  className={`absolute left-0 top-full mt-2 bg-white shadow-lg w-64 rounded-lg p-4 transition-all duration-300 ${activeMenu === menu.name ? "opacity-100 visible" : "opacity-0 invisible"}`}
+                  className={`absolute left-0 top-full mt-2 bg-primary shadow-lg w-64 rounded-lg p-4 transition-all duration-300 ${activeMenu === menu.name ? "opacity-100 visible" : "opacity-0 invisible"}`}
                 >
                   <ul>
                     {menu.links.map((link) => (
-                      <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
+                      <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg"
+                        onMouseEnter={() => link.sublinks && setActiveSubmenu(link.name)}
+                        onMouseLeave={() => link.sublinks && setActiveSubmenu(null)}
+                      >
                         {link.sublinks ? (
-                          <span className="font-semibold flex items-center justify-between">
-                            {link.name}
-                            <HiChevronDown className="ml-2 text-sm" />
-                          </span>
+                          <>
+                            <span className="font-semibold flex items-center justify-between">
+                              {link.name}
+                              <HiChevronDown className="ml-2 text-sm" />
+                            </span>
+                            <ul className={`pl-4 mt-2 transition-all duration-300 ${activeSubmenu === link.name ? "block" : "hidden"}`}>
+                              {link.sublinks.map((sublink) => (
+                                <li key={sublink.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
+                                  <Link href={sublink.href}>{sublink.name}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
                         ) : (
                           <Link href={link.href}>{link.name}</Link>
                         )}

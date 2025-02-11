@@ -5,13 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const images = [
-  '/images/project1.jpg',
-  '/images/project2.jpg',
-  '/images/project3.jpg',
-  '/images/project4.jpg',
-  '/images/project5.jpg',
-];
+const images = Array.from({ length: 30 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -25,17 +19,17 @@ export default function Gallery() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold text-center mb-6">Galería de Proyectos</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24">
+      <h2 className="text-3xl font-bold text-center mt-24 text-black">25 years on our construction history</h2>
+      <div className="flex-grow text-black grid grid-cols-1 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {images.map((src, index) => (
-          <motion.div key={index} whileHover={{ scale: 1.05 }}>
+          <motion.div key={index} whileHover={{ scale: 1.05 }} className="w-full h-full">
             <Image
               src={src}
               alt={`Proyecto ${index + 1}`}
               width={300}
               height={200}
-              className="rounded-lg cursor-pointer"
+              className="rounded-lg cursor-pointer w-full h-auto object-cover"
               onClick={() => setSelectedImage(index)}
             />
           </motion.div>
@@ -45,30 +39,30 @@ export default function Gallery() {
       <AnimatePresence>
         {selectedImage !== null && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <button
-              className="absolute top-5 right-5 text-white text-3xl"
+              className="absolute top-5 right-5 text-black text-3xl"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
             </button>
-            <button className="absolute left-5 text-white" onClick={prevImage}>
+            <button className="absolute left-5 text-black" onClick={prevImage}>
               <ChevronLeft size={40} />
             </button>
             <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }}>
               <Image
                 src={images[selectedImage]}
                 alt="Imagen ampliada"
-                width={800}
-                height={600}
+                width={1000}
+                height={800}
                 className="rounded-lg"
               />
             </motion.div>
-            <button className="absolute right-5 text-white" onClick={nextImage}>
+            <button className="absolute right-5 text-black" onClick={nextImage}>
               <ChevronRight size={40} />
             </button>
           </motion.div>

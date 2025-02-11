@@ -9,7 +9,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const Carousel = ({ images }: { images: string[] }) => {
   return (
-    <div className="bg-white py-10">
+    <div className="bg-secondary py-10">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
