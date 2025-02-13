@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa"; // Ícono de flecha
+import { FaArrowDown } from "react-icons/fa";
+import CountUp from "react-countup";
 
 const HeroSection = () => {
   return (
@@ -24,17 +27,40 @@ const HeroSection = () => {
   );
 };
 
+interface CounterProps {
+  number: number;
+  title: string;
+  svgPath: string;
+}
+
+const Counter: React.FC<CounterProps> = ({ number, title, svgPath }) => (
+  <div className="flex flex-col items-center text-center">
+    <Image src={svgPath} width={64} height={64} alt={title} className="mb-2" />
+    <CountUp start={0} end={number} duration={3} separator="," className="text-4xl font-bold text-gray-800" />
+    <p className="text-lg text-gray-600">{title}</p>
+  </div>
+);
+
 const HomeSection = () => {
   return (
     <section className="w-full min-h-screen bg-secondary text-gray-800 flex flex-col items-center justify-center p-8">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Welcome to Casapia Construction Inc.</h2>
-      <p className="text-lg md:text-xl max-w-3xl text-center">
-      We are delighted to introduce our company. Casapia has assembled a team of top-tier construction professionals, 
-      offering services across various market sectors: office, retail, residential, hotel, educational, medical, special use, 
-      parking, housing, industrial, and renovation projects for both public and private sectors. 
-      We are committed to serving our clients with confidence and technology. 
-      Additionally, we specialize in collaborating with South Korean enterprises, ensuring tailored solutions that meet their unique needs.
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        Welcome to Casapia Construction Inc.
+      </h2>
+      <p className="text-lg md:text-xl max-w-3xl text-center mb-12">
+        Casapia has assembled a team of top-tier construction professionals, offering services across various market
+        sectors. We are committed to serving our clients with confidence and technology, specializing in collaborations
+        with South Korean enterprises.
       </p>
+
+      {/* Contador listo para SVGs */}
+      <p>*ejemplo*</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <Counter number={25} title="Years of Experience" svgPath="/svg/calendar.svg" />
+        <Counter number={500} title="Projects Completed" svgPath="/svg/building.svg" />
+        <Counter number={100} title="Clients Served" svgPath="/svg/globe.svg" />
+        <Counter number={10} title="Awards Won" svgPath="/svg/award.svg" />
+      </div>
     </section>
   );
 };

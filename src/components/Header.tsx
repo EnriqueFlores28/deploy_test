@@ -10,7 +10,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
@@ -69,12 +68,7 @@ const Header = () => {
                 links: [
                   { name: "Mission, Vision and Values", href: "/about/mission" },
                   { name: "CEO", href: "/about/ceo" },
-                  {
-                    name: "History",
-                    sublinks: [
-                      { name: "Timeline", href: "/about/history/timeline" }
-                    ]
-                  }
+                  { name: "Timeline", href: "/about/history/timeline" } // Ahora es un enlace directo
                 ]
               },
               {
@@ -94,10 +88,7 @@ const Header = () => {
             ].map((menu) => (
               <li key={menu.name} className="relative"
                 onMouseEnter={() => setActiveMenu(menu.name)}
-                onMouseLeave={() => {
-                  setActiveMenu(null);
-                  setActiveSubmenu(null);
-                }}
+                onMouseLeave={() => setActiveMenu(null)}
               >
                 <button
                   className="px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between w-full lg:w-auto"
@@ -110,27 +101,8 @@ const Header = () => {
                 >
                   <ul>
                     {menu.links.map((link) => (
-                      <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg"
-                        onMouseEnter={() => link.sublinks && setActiveSubmenu(link.name)}
-                        onMouseLeave={() => link.sublinks && setActiveSubmenu(null)}
-                      >
-                        {link.sublinks ? (
-                          <>
-                            <span className="font-semibold flex items-center justify-between">
-                              {link.name}
-                              <HiChevronDown className="ml-2 text-sm" />
-                            </span>
-                            <ul className={`pl-4 mt-2 transition-all duration-300 ${activeSubmenu === link.name ? "block" : "hidden"}`}>
-                              {link.sublinks.map((sublink) => (
-                                <li key={sublink.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
-                                  <Link href={sublink.href}>{sublink.name}</Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </>
-                        ) : (
-                          <Link href={link.href}>{link.name}</Link>
-                        )}
+                      <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
+                        <Link href={link.href}>{link.name}</Link>
                       </li>
                     ))}
                   </ul>

@@ -19,7 +19,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24">
+    <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24 pb-20">
       <h2 className="text-3xl font-bold text-center mt-24 text-black">25 years on our construction history</h2>
       <div className="flex-grow text-black grid grid-cols-1 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {images.map((src, index) => (
