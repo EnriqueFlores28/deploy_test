@@ -12,8 +12,8 @@ const HeroSection = () => {
         <Image
           src="/Petronas.avif"
           alt="Hero Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           quality={100}
         />
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay Oscuro */}
@@ -35,7 +35,7 @@ interface CounterProps {
 
 const Counter: React.FC<CounterProps> = ({ number, title, svgPath }) => (
   <div className="flex flex-col items-center text-center">
-    <Image src={svgPath} width={64} height={64} alt={title} className="mb-2" />
+    <Image src={svgPath} width={64} height={64} alt={title} />
     <CountUp start={0} end={number} duration={3} separator="," className="text-4xl font-bold text-gray-800" />
     <p className="text-lg text-gray-600">{title}</p>
   </div>
@@ -54,7 +54,7 @@ const HomeSection = () => {
       </p>
 
       {/* Contador listo para SVGs */}
-      <p>*ejemplo*</p>
+      <p>*sample*</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         <Counter number={25} title="Years of Experience" svgPath="/svg/calendar.svg" />
         <Counter number={500} title="Projects Completed" svgPath="/svg/building.svg" />
