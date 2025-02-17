@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -9,6 +9,19 @@ const images = Array.from({ length: 30 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const nextImage = () => {
     setSelectedImage((prev) => (prev !== null ? (prev === images.length - 1 ? 0 : prev + 1) : 0));
@@ -20,7 +33,7 @@ export default function Gallery() {
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24 pb-20">
-      <h2 className="text-3xl font-bold text-center mt-24 text-black">25 years on our construction history</h2>
+      <h2 className="text-3xl text-center mt-24 text-black">25 years on our construction history</h2>
       <div className="flex-grow text-black grid grid-cols-1 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {images.map((src, index) => (
           <motion.div key={index} whileHover={{ scale: 1.05 }} className="w-full h-full">

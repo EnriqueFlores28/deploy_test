@@ -13,7 +13,7 @@ const Construction = () => {
   return (
     <div className="bg-secondary min-h-screen pt-24 py-16 px-6 text-center">
       {/* Title Section */}
-      <h1 className="text-5xl font-bold mb-6 text-black">Construction</h1>
+      <h1 className="text-5xl mb-6 text-black">Construction</h1>
       
       {/* Carousel Section */}
       <div className="mb-10">

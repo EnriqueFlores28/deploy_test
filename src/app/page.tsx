@@ -44,7 +44,7 @@ const Counter: React.FC<CounterProps> = ({ number, title, svgPath }) => (
 const HomeSection = () => {
   return (
     <section className="w-full min-h-screen bg-secondary text-gray-800 flex flex-col items-center justify-center p-8">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">
         Welcome to Casapia Construction Inc.
       </h2>
       <p className="text-lg md:text-xl max-w-3xl text-center mb-12">

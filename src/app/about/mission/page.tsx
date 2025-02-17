@@ -7,7 +7,7 @@ const MissionVisionValues = () => {
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Header />
       <div className="flex-grow flex flex-col justify-center items-center p-6 sm:p-12 mt-16">
-        <h1 className="text-5xl font-extrabold text-black mb-12 text-center">Mission, Vision & Values</h1>
+        <h1 className="text-5xl text-black mb-12 text-center">Mission, Vision & Values</h1>
 
         {/* Mission Section */}
         <section className="mb-12 text-center max-w-4xl p-10 bg-white shadow-lg rounded-xl">
@@ -32,7 +32,7 @@ const MissionVisionValues = () => {
 
         {/* Core Values Section */}
         <section className="text-center max-w-5xl">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10">Core Values</h2>
+          <h2 className="text-4xl text-gray-800 mb-10">Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[{
               icon: <FaStar className="text-yellow-500 text-5xl mb-3" />, 
