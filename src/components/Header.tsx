@@ -115,7 +115,7 @@ const Header = () => {
 
                 {/* Submenú (hover en escritorio, clic en móvil) */}
                 <div
-                  className={`lg:absolute left-0 lg:left-auto top-full bg-white shadow-md w-full lg:w-64 rounded-lg p-4 transition-all duration-300 
+                  className={`lg:absolute left-0 lg:left-auto top-full bg-primary shadow-md w-full lg:w-64 rounded-lg p-4 transition-all duration-300 
                     ${isDesktop ? (activeMenu === menu.name ? "opacity-100 visible" : "opacity-0 invisible") : (openSubMenu === menu.name ? "block" : "hidden")}
                   `}
                 >
