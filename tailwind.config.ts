@@ -14,6 +14,7 @@ export default {
         primary: "#F1F0F3", // Color personalizado principal
         secondary: "#FBFAFD", // Color personalizado secundario
         accent: "#32CD32", // Otro color personalizado
+        corporate: "#0401de",
       },
     },
   },

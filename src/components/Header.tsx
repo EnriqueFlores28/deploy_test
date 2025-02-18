@@ -44,6 +44,12 @@ const Header = () => {
     }
   };
 
+  const closeMenus = () => {
+    setOpenSubMenu(null);
+    setActiveMenu(null);
+    setMenuOpen(false);
+  };
+
   const headerClass = isHome && !isScrolled && !isHovered
     ? "bg-transparent text-white"
     : "bg-primary shadow-lg text-blue-600";
@@ -77,7 +83,7 @@ const Header = () => {
         {/* Menú de Navegación */}
         <nav className={`lg:flex absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ${menuOpen ? "block" : "hidden lg:block"}`}>
           <ul className="lg:flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
-            {[ 
+            {[
               {
                 name: "about",
                 links: [
@@ -106,11 +112,13 @@ const Header = () => {
                 onMouseLeave={() => isDesktop && setActiveMenu(null)}
               >
                 <button
-                  className="px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between w-full lg:w-auto"
+                  className="w-full px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between"
                   onClick={() => toggleSubMenu(menu.name)}
                 >
-                  {menu.name.charAt(0).toUpperCase() + menu.name.slice(1)}
-                  <HiChevronDown className={`ml-2 text-xl transition-transform duration-200 ${openSubMenu === menu.name ? "rotate-180" : ""}`} />
+                  <span className="w-full inline-flex justify-between items-center">
+                    {menu.name.charAt(0).toUpperCase() + menu.name.slice(1)}
+                    <HiChevronDown className={`ml-2 text-xl transition-transform duration-200 ${openSubMenu === menu.name ? "rotate-180" : ""}`} />
+                  </span>
                 </button>
 
                 {/* Submenú (hover en escritorio, clic en móvil) */}
@@ -122,7 +130,9 @@ const Header = () => {
                   <ul>
                     {menu.links.map((link) => (
                       <li key={link.name} className="hover:bg-gray-100 px-4 py-2 rounded-lg">
-                        <Link href={link.href}>{link.name}</Link>
+                        <Link href={link.href} className="w-full h-full inline-block" onClick={closeMenus}>
+                          {link.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -132,7 +142,7 @@ const Header = () => {
 
             {/* Contacto */}
             <li>
-              <Link href="/contact" className="px-4 py-2 transition-all hover:bg-gray-100 rounded-lg block text-center">
+              <Link href="/contact" className="w-full px-4 py-2 transition-all hover:bg-gray-100 rounded-lg block text-center" onClick={closeMenus}>
                 Contact Us
               </Link>
             </li>

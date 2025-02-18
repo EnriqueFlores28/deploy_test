@@ -10,19 +10,6 @@ const images = Array.from({ length: 30 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedImage(null);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
   const nextImage = () => {
     setSelectedImage((prev) => (prev !== null ? (prev === images.length - 1 ? 0 : prev + 1) : 0));
   };
@@ -30,6 +17,23 @@ export default function Gallery() {
   const prevImage = () => {
     setSelectedImage((prev) => (prev !== null ? (prev === 0 ? images.length - 1 : prev - 1) : images.length - 1));
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      } else if (event.key === 'ArrowRight' && selectedImage !== null) {
+        nextImage();
+      } else if (event.key === 'ArrowLeft' && selectedImage !== null) {
+        prevImage();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImage]);
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24 pb-20">
