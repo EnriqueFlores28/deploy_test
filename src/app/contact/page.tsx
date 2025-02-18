@@ -13,7 +13,7 @@ export default function ContactPage() {
                     <form className="space-y-4">
                         <input type="text" placeholder="Name" className="w-full p-3 border rounded-md" />
                         <input type="email" placeholder="Email" className="w-full p-3 border rounded-md" />
-                        <textarea placeholder="Message" rows={4} className="w-full p-3 border rounded-md"></textarea>
+                        <textarea placeholder="Message" rows={4} className="w-full p-3 border resize-none rounded-md"></textarea>
                         <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">
                             Send Message
                         </button>

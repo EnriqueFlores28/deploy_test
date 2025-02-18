@@ -59,7 +59,7 @@ const Header = () => {
   if (!hydrated) return null;
 
   return (
-    <header className={`fixed top-0 left-0 w-full p-4 transition-all duration-300 z-50 ${headerClass}`}
+    <header className={`fixed top-0 left-0 w-full p-4 transition-all duration-200 z-50 ${headerClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -81,7 +81,7 @@ const Header = () => {
         </button>
 
         {/* Menú de Navegación */}
-        <nav className={`lg:flex absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ${menuOpen ? "block" : "hidden lg:block"}`}>
+        <nav className={`lg:flex absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 ${menuOpen ? "block" : "hidden lg:block"}`}>
           <ul className="lg:flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
             {[
               {
@@ -112,7 +112,7 @@ const Header = () => {
                 onMouseLeave={() => isDesktop && setActiveMenu(null)}
               >
                 <button
-                  className="w-full px-4 py-2 transition-all hover:bg-gray-100 rounded-lg flex items-center justify-between"
+                  className="w-full px-4 py-2 hover:bg-gray-100 rounded-lg flex items-center justify-between"
                   onClick={() => toggleSubMenu(menu.name)}
                 >
                   <span className="w-full inline-flex justify-between items-center">
@@ -123,7 +123,7 @@ const Header = () => {
 
                 {/* Submenú (hover en escritorio, clic en móvil) */}
                 <div
-                  className={`lg:absolute left-0 lg:left-auto top-full bg-primary shadow-md w-full lg:w-64 rounded-lg p-4 transition-all duration-300 
+                  className={`lg:absolute left-0 lg:left-auto top-full bg-primary shadow-md w-full lg:w-64 rounded-lg p-4 transition-all duration-200 
                     ${isDesktop ? (activeMenu === menu.name ? "opacity-100 visible" : "opacity-0 invisible") : (openSubMenu === menu.name ? "block" : "hidden")}
                   `}
                 >
@@ -142,7 +142,7 @@ const Header = () => {
 
             {/* Contacto */}
             <li>
-              <Link href="/contact" className="w-full px-4 py-2 transition-all hover:bg-gray-100 rounded-lg block text-center" onClick={closeMenus}>
+              <Link href="/contact" className="w-full px-4 py-2 hover:bg-gray-100 rounded-lg block text-center" onClick={closeMenus}>
                 Contact Us
               </Link>
             </li>

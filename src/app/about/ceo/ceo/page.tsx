@@ -17,7 +17,7 @@ const CEOMessage = () => {
             ></div>
 
             {/* Tabs Navigation - Adjusted to be below header */}
-            <div className="w-full flex justify-center relative z-20 mt-[-360px]">
+            <div className="w-full flex justify-center relative z-20 mt-[-280px]">
                 <div className="bg-white shadow-md rounded-full px-6 py-3 flex space-x-8">
                     <button
                         className={`text-lg font-semibold px-4 py-2 ${activeTab === "chairman" ? "text-red-600 border-b-2 border-red-600" : "text-gray-600"}`}
