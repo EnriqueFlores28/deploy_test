@@ -21,7 +21,7 @@ const Market = () => {
     <div className="bg-secondary min-h-screen pt-24 py-16 px-6 text-center">
       {/* Title Section */}
       <h1 className="text-5xl mb-6 text-black">Market</h1>
-      
+
       {/* Carousel Section */}
       <div className="mb-10">
         <Carousel images={images} />
@@ -34,13 +34,13 @@ const Market = () => {
         </p>
       </div>
 
-      {/* Materials Table Section */}
-      <div className="max-w-5xl mx-auto overflow-x-auto">
+      {/* Materials Table Section for Desktop */}
+      <div className="max-w-5xl mx-auto overflow-x-auto hidden md:block">
         <h2 className="text-3xl font-semibold text-black mb-4">Our Available Materials</h2>
         <p className="text-lg text-gray-600 mb-6">
           Here are some of the high-quality materials we provide to support your industrial and commercial construction projects.
         </p>
-        <table className="w-full border-collapse border border-blue-500 shadow-lg">
+        <table className="w-full min-w-[600px] border-collapse border border-blue-500 shadow-lg">
           <thead className="bg-blue-600 text-white text-lg">
             <tr>
               <th className="border border-blue-500 px-6 py-3">Material</th>
@@ -58,6 +58,21 @@ const Market = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Responsive Cards for Mobile */}
+      <div className="md:hidden">
+        <h2 className="text-3xl font-semibold text-black mb-4">Our Available Materials</h2>
+        <p className="text-lg text-gray-600 mb-6">
+          Here are some of the high-quality materials we provide to support your industrial and commercial construction projects:
+        </p>
+        {materials.map((material, index) => (
+          <div key={index} className="bg-blue-100 p-4 mb-4 rounded-lg shadow-md">
+            <h3 className="font-semibold text-lg text-black">{material.name}</h3>
+            <p className="text-gray-700">{material.description}</p>
+            <p className="font-bold text-blue-600">{material.price}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
