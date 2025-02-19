@@ -62,12 +62,12 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
           >
             <button
-              className="absolute top-5 right-5 text-black text-3xl"
+              className="absolute top-5 right-5 text-white text-3xl"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
             </button>
-            <button className="absolute left-5 text-black" onClick={prevImage}>
+            <button className="absolute left-5 text-white" onClick={prevImage}>
               <ChevronLeft size={40} />
             </button>
             <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }}>
@@ -79,7 +79,7 @@ export default function Gallery() {
                 className="rounded-lg"
               />
             </motion.div>
-            <button className="absolute right-5 text-black" onClick={nextImage}>
+            <button className="absolute right-5 text-white" onClick={nextImage}>
               <ChevronRight size={40} />
             </button>
           </motion.div>

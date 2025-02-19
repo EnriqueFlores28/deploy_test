@@ -9,13 +9,6 @@ const images = [
   "/market/market3.jpg"
 ];
 
-const materials = [
-  { name: "Concrete", description: "High-strength concrete for industrial use", price: "$50 per ton" },
-  { name: "Steel Beams", description: "Durable structural steel beams", price: "$200 per unit" },
-  { name: "Bricks", description: "Premium quality bricks for construction", price: "$1 per brick" },
-  { name: "Insulation Panels", description: "Thermal and soundproof insulation panels", price: "$30 per sheet" }
-];
-
 const Market = () => {
   return (
     <div className="bg-secondary min-h-screen pt-24 py-16 px-6 text-center">
@@ -34,46 +27,6 @@ const Market = () => {
         </p>
       </div>
 
-      {/* Materials Table Section for Desktop */}
-      <div className="max-w-5xl mx-auto overflow-x-auto hidden md:block">
-        <h2 className="text-3xl font-semibold text-black mb-4">Our Available Materials</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Here are some of the high-quality materials we provide to support your industrial and commercial construction projects.
-        </p>
-        <table className="w-full min-w-[600px] border-collapse border border-blue-500 shadow-lg">
-          <thead className="bg-blue-600 text-white text-lg">
-            <tr>
-              <th className="border border-blue-500 px-6 py-3">Material</th>
-              <th className="border border-blue-500 px-6 py-3">Description</th>
-              <th className="border border-blue-500 px-6 py-3">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {materials.map((material, index) => (
-              <tr key={index} className="bg-blue-100 hover:bg-blue-200 text-black">
-                <td className="border border-blue-500 px-6 py-3 font-medium">{material.name}</td>
-                <td className="border border-blue-500 px-6 py-3">{material.description}</td>
-                <td className="border border-blue-500 px-6 py-3 font-semibold">{material.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Responsive Cards for Mobile */}
-      <div className="md:hidden">
-        <h2 className="text-3xl font-semibold text-black mb-4">Our Available Materials</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Here are some of the high-quality materials we provide to support your industrial and commercial construction projects:
-        </p>
-        {materials.map((material, index) => (
-          <div key={index} className="bg-blue-100 p-4 mb-4 rounded-lg shadow-md">
-            <h3 className="font-semibold text-lg text-black">{material.name}</h3>
-            <p className="text-gray-700">{material.description}</p>
-            <p className="font-bold text-blue-600">{material.price}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

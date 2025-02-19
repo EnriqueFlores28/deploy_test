@@ -15,12 +15,6 @@ interface Milestone {
   location?: string;
 }
 
-const filters = [
-  { id: "all", label: "All Projects" },
-  { id: "elflorido", label: "El Florido" },
-  { id: "milestones", label: "Key Milestones" },
-];
-
 const groupByLustro = (data: (Project | Milestone)[]) => {
   const grouped: Record<number, (Project | Milestone)[]> = {};
   data.forEach((item) => {
@@ -32,7 +26,6 @@ const groupByLustro = (data: (Project | Milestone)[]) => {
 };
 
 const Timeline: React.FC = () => {
-  const [filter, setFilter] = useState("all");
   const [projectsData, setProjectsData] = useState<Project[]>([]);
   const [milestonesData, setMilestonesData] = useState<Milestone[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -55,14 +48,7 @@ const Timeline: React.FC = () => {
       .catch((err) => setError(err.message));
   }, []);
 
-  const filteredData = () => {
-    if (filter === "all") return [...projectsData, ...milestonesData];
-    if (filter === "elflorido") return [...projectsData, ...milestonesData].filter((p) => p.location?.toLowerCase().includes("florido"));
-    if (filter === "milestones") return milestonesData;
-    return [];
-  };
-
-  const groupedData = groupByLustro(filteredData());
+  const groupedData = groupByLustro([...projectsData, ...milestonesData]);
 
   return (
     <div className="bg-secondary relative w-full min-h-screen flex flex-col items-center py-12 px-6 pt-16 text-black">
@@ -75,19 +61,6 @@ const Timeline: React.FC = () => {
             journey through the most important milestones of our company.
           </p>
         </div>
-      </div>
-
-      {/* Filters properly centered with equal width */}
-      <div className="relative w-full max-w-4xl mb-6 flex justify-center gap-4 z-10">
-        {filters.map(({ id, label }) => (
-          <button
-            key={id}
-            onClick={() => setFilter(id)}
-            className={`w-40 px-4 py-2 rounded-lg font-semibold text-center ${filter === id ? "bg-blue-600 text-white shadow-md" : "bg-gray-300 text-black"}`}
-          >
-            {label}
-          </button>
-        ))}
       </div>
 
       {/* Show error if any */}
