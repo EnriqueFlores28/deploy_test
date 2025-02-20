@@ -4,9 +4,9 @@ import React from "react";
 import Carousel from "@/components/ui/carousel";
 
 const images = [
-  "/construction/const1.jpg",
-  "/construction/construction2.jpg",
-  "/construction/construction3.jpg"
+  "/construction/imgconst1.jpg",
+  "/construction/imgconst2.jpg",
+  "/construction/imgconst3.jpg"
 ];
 
 const Construction = () => {

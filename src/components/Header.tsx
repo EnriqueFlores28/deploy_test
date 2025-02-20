@@ -109,7 +109,7 @@ const Header = () => {
                 onMouseLeave={() => isDesktop && setActiveMenu(null)}
               >
                 <button
-                  className={`w-full px-4 py-3 hover:bg-gray-100 rounded-lg flex items-center justify-between`}
+                  className={`w-full px-4 py-3 hover:bg-primary rounded-lg flex items-center justify-between`}
                   onClick={() => toggleSubMenu(menu.name)}
                 >
                   <span className="w-full inline-flex justify-between items-center">
@@ -123,7 +123,7 @@ const Header = () => {
                 >
                   <ul className="lg:pl-0 pl-6 space-y-2">
                     {menu.links.map((link) => (
-                      <li key={link.name} className="hover:bg-gray-100 lg:px-4 px-6 py-3 rounded-lg">
+                      <li key={link.name} className="hover:bg-gray-50 lg:px-4 px-6 py-3 rounded-lg">
                         <Link href={link.href} className="w-full h-full inline-block" onClick={closeMenus}>
                           {link.name}
                         </Link>
@@ -134,7 +134,7 @@ const Header = () => {
               </li>
             ))}
             <li>
-              <Link href="/contact" className="w-full px-4 py-3 hover:bg-gray-100 rounded-lg block text-center" onClick={closeMenus}>
+              <Link href="/contact" className="w-full px-4 py-3 hover:bg-primary rounded-lg block text-center" onClick={closeMenus}>
                 Contact Us
               </Link>
             </li>

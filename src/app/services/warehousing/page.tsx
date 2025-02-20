@@ -79,6 +79,22 @@ const Warehousing = () => {
         </table>
       </div>
 
+      {/* Responsive Cards for Mobile */}
+      <div className="md:hidden">
+        <h2 className="text-3xl font-semibold text-black mb-4">Our Available Warehousing Solutions</h2>
+        <p className="text-lg text-gray-600 mb-6">
+          Here you will find all the warehouses we offer to support your manufacturing and logistics needs.
+        </p>
+        {materials.map((material, index) => (
+          <div key={index} className="bg-blue-100 p-4 mb-4 rounded-lg shadow-md">
+            <h3 className="font-semibold text-lg text-black">{material.name}</h3>
+            <p className="text-gray-700">Construction Date: {material.cdate}</p>
+            <p className="text-gray-700">Location: {material.location}</p>
+            <p className="font-bold text-blue-600">Building Area: {material.area}</p>
+          </div>
+        ))}
+      </div>
+
       {/* Map Iframes Section */}
       <div className="max-w-5xl mx-auto mt-10">
         <h2 className="text-3xl font-semibold text-black mb-4">Warehouse Locations</h2>

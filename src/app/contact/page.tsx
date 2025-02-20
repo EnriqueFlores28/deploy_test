@@ -38,10 +38,24 @@ export default function ContactPage() {
                     {/* Contact Information Section */}
                     <div className="text-gray-800 flex flex-col justify-center">
                         <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                        <p className="text-gray-700 mb-2">📍 Address: Andador Vecinal 10381, Valle Redondo, Tijuana, B.C.</p>
-                        <p className="text-gray-700 mb-2">📞 Phone: +52 664 123 4567</p>
-                        <p className="text-gray-700">✉️ Email: info@casapiaconstruccion.com</p>
-                        <p className="text-gray-700 mt-2">🔗 <a href="https://goo.gl/maps/your-map-link" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">View on Google Maps</a></p>
+                        <p className="text-gray-700 mb-2 flex items-center">
+                            <img src="/svg/pin.svg" alt="Address Icon" className="w-5 h-5 mr-2" />
+                            Address: Andador Vecinal 10381, Valle Redondo, Tijuana, B.C.
+                        </p>
+                        <p className="text-gray-700 mb-2 flex items-center">
+                            <img src="/svg/phone.svg" alt="Phone Icon" className="w-5 h-5 mr-2" />
+                            Phone: +52 664 123 4567
+                        </p>
+                        <p className="text-gray-700 flex items-center">
+                            <img src="/svg/email.svg" alt="Email Icon" className="w-5 h-5 mr-2" />
+                            Email: info@casapiaconstruccion.com
+                        </p>
+                        <p className="text-gray-700 mt-2 flex items-center">
+                            <img src="/svg/maps.svg" alt="Map Icon" className="w-5 h-5 mr-2" />
+                            <a href="https://maps.app.goo.gl/5i75QzW1zmURErUSA" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                                View on Google Maps
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

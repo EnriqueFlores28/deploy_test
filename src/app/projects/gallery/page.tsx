@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -9,14 +10,17 @@ const images = Array.from({ length: 30 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const searchParams = useSearchParams();
+  const imageParam = searchParams.get('image');
 
-  const nextImage = () => {
-    setSelectedImage((prev) => (prev !== null ? (prev === images.length - 1 ? 0 : prev + 1) : 0));
-  };
-
-  const prevImage = () => {
-    setSelectedImage((prev) => (prev !== null ? (prev === 0 ? images.length - 1 : prev - 1) : images.length - 1));
-  };
+  useEffect(() => {
+    if (imageParam) {
+      const index = images.indexOf(imageParam);
+      if (index !== -1) {
+        setSelectedImage(index);
+      }
+    }
+  }, [imageParam]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -34,6 +38,14 @@ export default function Gallery() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedImage]);
+
+  const nextImage = () => {
+    setSelectedImage((prev) => (prev !== null ? (prev === images.length - 1 ? 0 : prev + 1) : 0));
+  };
+
+  const prevImage = () => {
+    setSelectedImage((prev) => (prev !== null ? (prev === 0 ? images.length - 1 : prev - 1) : images.length - 1));
+  };
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-secondary px-6 sm:px-10 md:px-16 lg:px-24 pb-20">
