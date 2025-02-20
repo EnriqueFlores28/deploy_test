@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 const CEOMessage = () => {
-    const [activeTab, setActiveTab] = useState("ceo");
+    const [activeTab, setActiveTab] = useState("chairman");
 
     const backgroundImage = activeTab === "ceo" ? "/images/background.png" : "/images/backgr.png";
 
@@ -37,10 +38,12 @@ const CEOMessage = () => {
             {/* Content Section Overlapping Hero */}
             <div className="w-full flex justify-center relative mt-12 px-4">
                 <Card className="max-w-4xl w-full bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 relative z-10">
-                    <img
+                    <Image
                         src={activeTab === "ceo" ? "/images/profile.png" : "/images/profpic.png"}
                         alt={activeTab === "ceo" ? "I.S. Park - CEO" : "D.Y. Jung - Chairman"}
-                        className="w-48 h-48 object-cover rounded-full border-4 border-gray-300"
+                        width={192}
+                        height={192}
+                        className="object-cover rounded-full border-4 border-gray-300"
                     />
                     <CardContent className="text-gray-700 space-y-4">
                         {activeTab === "ceo" ? (
