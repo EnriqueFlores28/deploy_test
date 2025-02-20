@@ -25,7 +25,6 @@ const groupByLustro = (data: TimelineItem[]) => {
 const Timeline: React.FC = () => {
   const [timelineData, setTimelineData] = useState<TimelineItem[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch("/data/cleaned_timeline.json")
