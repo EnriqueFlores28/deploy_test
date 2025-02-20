@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,9 +20,11 @@ const Carousel = ({ images }: { images: string[] }) => {
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <img
+            <Image
               src={src}
               alt={`Slide ${index + 1}`}
+              width={1200}
+              height={500}
               className="w-full h-full object-cover rounded-xl"
             />
           </SwiperSlide>
