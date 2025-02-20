@@ -9,7 +9,7 @@ import Image from "next/image";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [, setActiveMenu] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
