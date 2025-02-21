@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSearchParams } from 'next/navigation';
+import Image from "next/image"; // ✅ Importar Next Image
 
 // Definir el tipo de datos unificado
 interface TimelineItem {
@@ -43,7 +43,9 @@ const Timeline: React.FC = () => {
       {/* Title and description */}
       <div className="relative z-10 bg-secondary w-full py-10 flex flex-col items-center">
         <div className="text-center max-w-3xl mb-10">
-          <h1 className="text-4xl text-black animate-fade-in">Our History: Over 20 Years of Growth and Excellence</h1>
+          <h1 className="text-4xl text-black animate-fade-in">
+            Our History: Over 20 Years of Growth and Excellence
+          </h1>
           <p className="text-lg text-gray-600 mt-4 animate-fade-in-slow">
             Since our beginnings, we have worked on key projects that have shaped our evolution. Explore our journey through the most important milestones of our company.
           </p>
@@ -78,10 +80,12 @@ const Timeline: React.FC = () => {
                   {/* Image with link to gallery */}
                   {item.image && (
                     <Link href={`/projects/gallery?image=${item.image}`} passHref>
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.name || "Timeline image"}
-                        className="w-24 h-24 object-cover rounded-lg shadow-md cursor-pointer"
+                        width={96} // Ajustado al tamaño del original (24 * 4)
+                        height={96}
+                        className="rounded-lg shadow-md cursor-pointer"
                       />
                     </Link>
                   )}
