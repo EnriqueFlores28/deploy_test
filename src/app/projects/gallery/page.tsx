@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,6 +9,14 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 const images = Array.from({ length: 30 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 
 export default function Gallery() {
+  return (
+    <Suspense fallback={<div>Loading gallery...</div>}>
+      <GalleryContent />
+    </Suspense>
+  );
+}
+
+const GalleryContent = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const searchParams = useSearchParams();
   const imageParam = searchParams.get('image');
@@ -99,4 +107,4 @@ export default function Gallery() {
       </AnimatePresence>
     </div>
   );
-}
+};
