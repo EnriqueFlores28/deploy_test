@@ -39,7 +39,7 @@ const Timeline: React.FC = () => {
   const groupedData = groupByLustro(timelineData);
 
   return (
-    <div className="bg-secondary relative w-full min-h-screen flex flex-col items-center py-12 px-6 pt-16 text-black">
+    <div className="bg-secondary relative w-full min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 pt-16 text-black">
       {/* Title and description */}
       <div className="relative z-10 bg-secondary w-full py-10 flex flex-col items-center">
         <div className="text-center max-w-3xl mb-10">
@@ -56,7 +56,7 @@ const Timeline: React.FC = () => {
       {error && <p className="text-red-500 mt-10">Error: {error}</p>}
 
       {/* Central timeline line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-gray-400 top-[20rem] bottom-10 z-0"></div>
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-gray-400 top-[20rem] bottom-10 z-0 hidden sm:block"></div>
 
       {Object.entries(groupedData).map(([lustroString, events]) => (
         <div key={lustroString} className="relative w-full max-w-4xl mb-10 text-center">
@@ -67,15 +67,14 @@ const Timeline: React.FC = () => {
             {events.map((item, index) => (
               <div
                 key={index}
-                className={`relative flex ${index % 2 === 0 ? "flex-row-reverse" : "flex-row"} items-center w-full max-w-4xl mb-6`}
+                className={`relative flex flex-col sm:flex-row ${index % 2 === 0 ? "sm:flex-row-reverse" : "sm:flex-row"} items-center w-full max-w-4xl mb-6`}
               >
-                {/* Timeline point */}
-                <div className="w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2 z-20"></div>
+                {/* Timeline point (only for larger screens) */}
+                <div className="hidden sm:block w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2 z-20"></div>
 
                 {/* Content box with image and text */}
                 <div
-                  className={`w-[45%] flex items-center space-x-4 bg-gray-100 p-6 rounded-lg shadow-lg ${index % 2 === 0 ? "ml-auto flex-row-reverse" : "mr-auto flex-row"
-                    }`}
+                  className="w-full sm:w-[45%] flex flex-col sm:flex-row items-center space-x-0 sm:space-x-4 bg-gray-100 p-4 sm:p-6 rounded-lg shadow-lg min-h-[150px]"
                 >
                   {/* Image with link to gallery */}
                   {item.image && (
@@ -83,17 +82,17 @@ const Timeline: React.FC = () => {
                       <Image
                         src={item.image}
                         alt={item.name || "Timeline image"}
-                        width={96} // Ajustado al tamaño del original (24 * 4)
-                        height={96}
-                        className="rounded-lg shadow-md cursor-pointer"
+                        width={100} // Ajustado para móviles
+                        height={100}
+                        className="rounded-lg shadow-md cursor-pointer object-cover w-[100px] h-[100px] sm:w-[120px] sm:h-[120px]"
                       />
                     </Link>
                   )}
 
                   {/* Text */}
-                  <div>
+                  <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
                     <span className="text-lg font-semibold block">{item.year}</span>
-                    <p className="text-lg">{item.name}</p>
+                    <p className="text-lg break-words">{item.name}</p>
                   </div>
                 </div>
               </div>

@@ -50,6 +50,10 @@ const Header = () => {
     setMenuOpen(false);
   };
 
+  const handleLinkClick = () => {
+    closeMenus();
+  };
+
   const headerClass = isHome && !isScrolled && !isHovered
     ? "bg-transparent text-white"
     : "bg-primary shadow-lg text-blue-600";
@@ -64,7 +68,7 @@ const Header = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto flex justify-between items-center relative">
-        <Link href="/" className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3" onClick={handleLinkClick}>
           <Image
             src={logoSrc}
             alt="Logo de la Empresa"
@@ -80,33 +84,29 @@ const Header = () => {
 
         <nav className={`lg:flex absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"}`}>
           <ul className="lg:flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
-            {[
-              {
-                name: "about",
-                links: [
-                  { name: "Mission, Vision and Values", href: "/about/mission" },
-                  { name: "CEO", href: "/about/ceo/ceo" },
-                  { name: "Timeline", href: "/about/history/timeline" }
-                ]
-              },
-              {
-                name: "services",
-                links: [
-                  { name: "Construction", href: "/services/construction" },
-                  { name: "Market", href: "/services/market" },
-                  { name: "Warehousing", href: "/services/warehousing" }
-                ]
-              },
-              {
-                name: "projects",
-                links: [
-                  { name: "Gallery", href: "/projects/gallery" }
-                ]
-              }
-            ].map((menu) => (
+            {[{
+              name: "about",
+              links: [
+                { name: "Mission, Vision and Values", href: "/about/mission" },
+                { name: "CEO", href: "/about/ceo/ceo" },
+                { name: "Timeline", href: "/about/history/timeline" }
+              ]
+            }, {
+              name: "services",
+              links: [
+                { name: "Construction", href: "/services/construction" },
+                { name: "Market", href: "/services/market" },
+                { name: "Warehousing", href: "/services/warehousing" }
+              ]
+            }, {
+              name: "projects",
+              links: [
+                { name: "Gallery", href: "/projects/gallery" }
+              ]
+            }].map((menu) => (
               <li key={menu.name} className="relative group"
-                onMouseEnter={() => isDesktop && setActiveMenu(menu.name)}
-                onMouseLeave={() => isDesktop && setActiveMenu(null)}
+                onMouseEnter={() => isDesktop && setOpenSubMenu(menu.name)}
+                onMouseLeave={() => isDesktop && setOpenSubMenu(null)}
               >
                 <button
                   className={`w-full px-4 py-3 hover:bg-primary rounded-lg flex items-center justify-between`}
@@ -119,12 +119,12 @@ const Header = () => {
                 </button>
 
                 <div
-                  className={`lg:absolute lg:bg-primary lg:shadow-md lg:w-64 lg:rounded-lg lg:p-4 ease-in-out ${isDesktop ? "hidden group-hover:block" : (openSubMenu === menu.name ? "max-h-96 opacity-100 visible" : "max-h-0 opacity-0 invisible")}`}
+                  className={`lg:absolute lg:bg-primary lg:shadow-md lg:w-64 lg:rounded-lg lg:p-4 ease-in-out ${openSubMenu === menu.name ? "block" : "hidden"}`}
                 >
                   <ul className="lg:pl-0 pl-6 space-y-2">
                     {menu.links.map((link) => (
                       <li key={link.name} className="hover:bg-gray-50 lg:px-4 px-6 py-3 rounded-lg">
-                        <Link href={link.href} className="w-full h-full inline-block" onClick={closeMenus}>
+                        <Link href={link.href} className="w-full h-full inline-block" onClick={handleLinkClick}>
                           {link.name}
                         </Link>
                       </li>
@@ -134,7 +134,7 @@ const Header = () => {
               </li>
             ))}
             <li>
-              <Link href="/contact" className="w-full px-4 py-3 hover:bg-primary rounded-lg block text-center" onClick={closeMenus}>
+              <Link href="/contact" className="w-full px-4 py-3 hover:bg-primary rounded-lg block text-center" onClick={handleLinkClick}>
                 Contact Us
               </Link>
             </li>

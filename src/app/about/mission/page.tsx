@@ -4,13 +4,17 @@ import Header from "@/components/Header";
 
 const MissionVisionValues = () => {
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div 
+      className="relative min-h-screen flex flex-col"
+      style={{ backgroundImage: "url('/bgtest.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <Header />
-      <div className="flex-grow flex flex-col justify-center items-center p-6 sm:p-12 mt-16">
-        <h1 className="text-5xl text-black mb-12 text-center">Mission, Vision & Values</h1>
+      <div className="flex-grow flex flex-col justify-center items-center p-6 sm:p-12 mt-16 relative z-10">
+        <h1 className="text-5xl text-white mb-12 text-center">Mission, Vision & Values</h1>
 
         {/* Mission Section */}
-        <section className="mb-12 text-center max-w-4xl p-10 bg-white shadow-lg rounded-xl">
+        <section className="mb-12 text-center max-w-4xl p-10 bg-white bg-opacity-70 shadow-lg rounded-xl">
           <Image 
             src="/svg/mission.svg" 
             alt="Mission Icon" 
@@ -28,7 +32,7 @@ const MissionVisionValues = () => {
         </section>
 
         {/* Vision Section */}
-        <section className="mb-12 text-center max-w-4xl p-10 bg-white shadow-lg rounded-xl">
+        <section className="mb-12 text-center max-w-4xl p-10 bg-white bg-opacity-70 shadow-lg rounded-xl">
           <Image 
             src="/svg/vision.svg" 
             alt="Vision Icon" 
@@ -46,7 +50,7 @@ const MissionVisionValues = () => {
 
         {/* Core Values Section */}
         <section className="text-center max-w-5xl">
-          <h2 className="text-4xl text-gray-800 mb-10">Core Values</h2>
+          <h2 className="text-4xl text-white mb-10">Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: "/svg/excellence.svg", title: "Excellence", desc: "We maintain the highest standards in every project, ensuring quality and efficiency." },
@@ -55,7 +59,7 @@ const MissionVisionValues = () => {
               { icon: "/svg/commitment.svg", title: "Commitment", desc: "We are dedicated to exceeding our clients' expectations and fostering long-term relationships." },
               { icon: "/svg/sustainability.svg", title: "Sustainability", desc: "We promote environmentally responsible practices in our construction processes." }
             ].map((value, index) => (
-              <div key={index} className="p-6 bg-white rounded-xl shadow-md flex flex-col items-center hover:shadow-2xl transition-all">
+              <div key={index} className="p-6 bg-white bg-opacity-70 rounded-xl shadow-md flex flex-col items-center hover:shadow-2xl transition-all">
                 <Image 
                   src={value.icon} 
                   alt={`${value.title} Icon`} 
