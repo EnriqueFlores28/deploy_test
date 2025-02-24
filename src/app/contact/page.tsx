@@ -46,7 +46,7 @@ export default function ContactPage() {
                         </p>
                         <p className="text-gray-700 mb-2 flex items-center">
                             <Image src="/svg/phone.svg" alt="Phone Icon" width={20} height={20} className="mr-2" />
-                            Phone: +52 664 123 4567
+                            Phone: +52 664 626 8795
                         </p>
                         <p className="text-gray-700 flex items-center">
                             <Image src="/svg/email.svg" alt="Email Icon" width={20} height={20} className="mr-2" />
