@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import GoHome from "@/components/ui/GoHome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Header />
         {children}
         <ScrollToTop />
+        <GoHome />
         <Footer />
       </body>
     </html>
