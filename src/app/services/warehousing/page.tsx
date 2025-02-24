@@ -92,7 +92,7 @@ const Warehousing = () => {
       </div>
 
       <div className="max-w-5xl mx-auto mt-10">
-        <h2 className="text-3xl font-semibold text-black mb-4">Warehouse Locations</h2>
+        <h2 className="text-3xl font-semibold text-black mb-10">Warehouse Locations</h2>
         <p className="text-lg text-gray-600 mb-6">Below are the locations of our warehouses. Click on the maps to explore.</p>
         {builds.map((build, index) => (
           <div key={index} className="mb-8">

@@ -10,10 +10,10 @@ const CEOMessage = () => {
     const backgroundImage = activeTab === "ceo" ? "/images/background.png" : "/images/backgr.png";
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center justify-start relative bg-gray-100 pb-32">
+        <div className="w-full min-h-screen flex flex-col items-center justify-start relative bg-gray-100 pb-16">
             {/* Hero Section - Half Screen Background */}
-            <div 
-                className="w-full h-[50vh] bg-cover bg-center" 
+            <div
+                className="w-full h-[50vh] bg-cover bg-center"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
             ></div>
 

@@ -21,7 +21,7 @@ const Construction = () => {
       </div>
 
       {/* Description Section */}
-      <div className="max-w-4xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md">
+      <div className="max-w-4xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md mb-10">
         <p className="text-lg text-gray-700 leading-relaxed">
           Our Construction division specializes in the development of high-quality industrial buildings tailored to the needs of the Korean manufacturing industry in Tijuana. 
           With 25 years of experience, we provide innovative and efficient construction solutions, ensuring durability, functionality, 
