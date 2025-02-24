@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa";
 import CountUp from "react-countup";
-import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   return (
