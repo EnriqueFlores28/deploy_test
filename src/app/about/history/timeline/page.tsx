@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"; // ✅ Importar Next Image
+import Image from "next/image"; 
 
-// Definir el tipo de datos unificado
 interface TimelineItem {
   year: number;
   name: string;
