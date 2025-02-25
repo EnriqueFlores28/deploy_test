@@ -2,13 +2,13 @@
     {
         "year": 2001,
         "location": "General",
-        "image": "/final/Slide1.JPG",
+        "image": "",
         "name": "VMM RENOVATION"
     },
     {
         "year": 2001,
         "location": "General",
-        "image": "/final/Slide2.JPG",
+        "image": "",
         "name": "SAMEX CELLULAR PHONE FACTORY REMODELING"
     },
     {
@@ -74,7 +74,7 @@
     {
         "year": 2004,
         "location": "General",
-        "image": "",
+        "image": "/final/Slide1.JPG",
         "name": "DORCO MEXICO NEW FACTORY"
     },
     {
@@ -98,7 +98,7 @@
     {
         "year": 2006,
         "location": "General",
-        "image": "",
+        "image": "/final/Slide2.JPG",
         "name": "HYUNDAI TRANSLEAD H LINE PROJECT NEW CONSTRUCTION"
     },
     {
@@ -218,7 +218,7 @@
     {
         "year": 2014,
         "location": "General",
-        "image": "",
+        "image": "/final/Slide11.JPG",
         "name": "KMM-HYUNDAI TEMPORARY OFFICE"
     },
     {
@@ -278,7 +278,7 @@
     {
         "year": 2019,
         "location": "General",
-        "image": "",
+        "image": "/final/Slide18.JPG",
         "name": "INZI DISPLAY PLANT EXTENSION"
     },
     {
@@ -314,7 +314,7 @@
     {
         "year": 2022,
         "location": "General",
-        "image": "",
+        "image": "/final/Slide21.JPG",
         "name": "HT T PROJECT, HYUNDAI ROSARITO"
     },
     {

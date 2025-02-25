@@ -59,6 +59,7 @@ const HomeSection = () => {
         <Counter number={100} title="Clients Served" svgPath="/svg/globe.svg" />
         <Counter number={10} title="Awards Won" svgPath="/svg/award.svg" />
       </div>
+      <p>*sample*</p>
 
       {/* Celebración de 25 años integrada aquí */}
       <div className="mt-14 text-center">
