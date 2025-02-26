@@ -55,11 +55,10 @@ const HomeSection = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-6 md:mt-8">
         <Counter number={25} title="Years of Experience" svgPath="/svg/calendar.svg" />
-        <Counter number={500} title="Projects Completed" svgPath="/svg/building.svg" />
-        <Counter number={100} title="Clients Served" svgPath="/svg/globe.svg" />
-        <Counter number={10} title="Awards Won" svgPath="/svg/award.svg" />
+        <Counter number={61} title="Projects Completed" svgPath="/svg/building.svg" />
+        <Counter number={14} title="Clients Served" svgPath="/svg/globe.svg" />
+        <Counter number={3} title="Awards Won" svgPath="/svg/award.svg" />
       </div>
-      <p>*sample*</p>
 
       {/* Celebración de 25 años integrada aquí */}
       <div className="mt-14 text-center">
@@ -71,7 +70,7 @@ const HomeSection = () => {
         </p>
         {/* Icono de brindis */}
         <div className="mt-4 md:mt-6">
-          <Image src="/svg/cheers.svg" width={100} height={100} alt="Brindis" className="mx-auto" />
+          <Image src="/svg/anniversary.svg" width={200} height={200} alt="Brindis" className="mx-auto" />
         </div>
       </div>
     </section>

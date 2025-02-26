@@ -6,7 +6,7 @@ const MissionVisionValues = () => {
   return (
     <div 
       className="relative min-h-screen flex flex-col"
-      style={{ backgroundImage: "url('/bgtest.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}
+      style={{ backgroundImage: "url('/images/backgroundTest.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <Header />
