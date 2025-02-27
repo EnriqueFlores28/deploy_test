@@ -3,10 +3,10 @@
 import React from "react";
 import Carousel from "@/components/ui/carousel";
 
-const images = [
-  "/construction/imgconst1.jpg",
-  "/construction/imgconst2.jpg",
-  "/construction/imgconst3.jpg"
+const slides = [
+  { src: "/construction/imgconst1.jpg", caption: "Sample Text 1" },
+  { src: "/construction/imgconst2.jpg", caption: "Sample Text 2" },
+  { src: "/construction/imgconst3.jpg", caption: "Sample Text 3" }
 ];
 
 const Construction = () => {
@@ -16,8 +16,8 @@ const Construction = () => {
       <h1 className="text-5xl mb-6 text-black">Construction</h1>
       
       {/* Carousel Section */}
-      <div className="mb-10">
-        <Carousel images={images} />
+      <div>
+        <Carousel slides={slides} />
       </div>
 
       {/* Description Section */}

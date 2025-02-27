@@ -40,7 +40,11 @@ const Timeline: React.FC = () => {
   let globalIndex = 0; // Contador global para alternar correctamente
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 pt-16 text-black bg-gradient-to-b from-blue-950 via-gray-800 to-gray-500">
+    <div className="relative w-full min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 pt-16 text-black"
+      style={{
+        background: "radial-gradient(circle at bottom left,rgb(28, 70, 93),rgb(72, 79, 116),rgb(22, 43, 85))"
+      }}
+    >
       {/* Title and description */}
       <div className="relative z-10 w-full py-10 flex flex-col items-center">
         <div className="text-center max-w-3xl mb-10">
