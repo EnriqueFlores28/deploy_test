@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"; // ✅ Importar Next Image
+import Image from "next/image";
 
-// Definir el tipo de datos unificado
 interface TimelineItem {
   year: number;
   name: string;
@@ -37,15 +36,13 @@ const Timeline: React.FC = () => {
   }, []);
 
   const groupedData = groupByLustro(timelineData);
-  let globalIndex = 0; // Contador global para alternar correctamente
-
+  let globalIndex = 0;
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 pt-16 text-black"
       style={{
         background: "radial-gradient(circle at bottom left,rgb(28, 70, 93),rgb(72, 79, 116),rgb(22, 43, 85))"
       }}
     >
-      {/* Title and description */}
       <div className="relative z-10 w-full py-10 flex flex-col items-center">
         <div className="text-center max-w-3xl mb-10">
           <h1 className="text-4xl text-white animate-fade-in">
@@ -57,10 +54,8 @@ const Timeline: React.FC = () => {
         </div>
       </div>
 
-      {/* Show error if any */}
       {error && <p className="text-red-500 mt-10">Error: {error}</p>}
 
-      {/* Central timeline line */}
       <div className="absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-gray-400 top-[20rem] bottom-10 z-0 hidden sm:block"></div>
 
       {Object.entries(groupedData).map(([lustroString, events]) => (
@@ -71,19 +66,16 @@ const Timeline: React.FC = () => {
           <div className="mt-4 space-y-6 relative z-10">
             {events.map((item) => {
               const isEven = globalIndex % 2 === 0;
-              globalIndex++; // Incrementar el contador global
+              globalIndex++;
 
               return (
                 <div
-                  key={item.year + item.name} // Mejor clave
+                  key={item.year + item.name}
                   className={`relative flex flex-col sm:flex-row ${isEven ? "sm:flex-row-reverse" : "sm:flex-row"} items-center w-full max-w-4xl mb-6`}
                 >
-                  {/* Timeline point (only for larger screens) */}
                   <div className="hidden sm:block w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2 z-20"></div>
 
-                  {/* Content box with image and text */}
                   <div className="w-full sm:w-[45%] flex flex-col sm:flex-row items-center space-x-0 sm:space-x-4 bg-gray-100 p-4 sm:p-6 rounded-lg shadow-lg min-h-[150px]">
-                    {/* Image with link to gallery */}
                     {item.image && (
                       <Link href={`/projects/gallery?image=${item.image}`} passHref>
                         <Image

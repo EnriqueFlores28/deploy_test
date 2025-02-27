@@ -38,7 +38,6 @@ const Carousel = ({ slides }: { slides: Slide[] }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Pie de foto */}
       <div className="italic mt-4 text-black text-lg bg-secondary px-4 py-2 rounded-md">
         {currentCaption}
       </div>

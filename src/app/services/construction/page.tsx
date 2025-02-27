@@ -12,15 +12,12 @@ const slides = [
 const Construction = () => {
   return (
     <div className="bg-secondary min-h-screen pt-24 py-16 px-6 text-center">
-      {/* Title Section */}
       <h1 className="text-5xl mb-6 text-black">Construction</h1>
       
-      {/* Carousel Section */}
       <div>
         <Carousel slides={slides} />
       </div>
 
-      {/* Description Section */}
       <div className="max-w-4xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md mb-10">
         <p className="text-lg text-gray-700 leading-relaxed">
           Our Construction division specializes in the development of high-quality industrial buildings tailored to the needs of the Korean manufacturing industry in Tijuana. 

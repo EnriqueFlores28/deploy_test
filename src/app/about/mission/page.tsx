@@ -13,7 +13,6 @@ const MissionVisionValues = () => {
       <div className="flex-grow flex flex-col justify-center items-center p-6 sm:p-12 mt-16 relative z-10">
         <h1 className="text-5xl text-white mb-12 text-center">Mission, Vision & Values</h1>
 
-        {/* Mission Section */}
         <section className="mb-12 text-center max-w-4xl p-10 bg-white bg-opacity-70 shadow-lg rounded-xl">
           <Image 
             src="/svg/mission.svg" 
@@ -31,7 +30,6 @@ const MissionVisionValues = () => {
           </p>
         </section>
 
-        {/* Vision Section */}
         <section className="mb-12 text-center max-w-4xl p-10 bg-white bg-opacity-70 shadow-lg rounded-xl">
           <Image 
             src="/svg/vision.svg" 
@@ -48,7 +46,6 @@ const MissionVisionValues = () => {
           </p>
         </section>
 
-        {/* Core Values Section */}
         <section className="text-center max-w-5xl">
           <h2 className="text-4xl text-white mb-10">Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

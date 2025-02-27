@@ -7,7 +7,6 @@ import CountUp from "react-countup";
 const HeroSection = () => {
   return (
     <section className="relative w-full h-screen flex items-center justify-center">
-      {/* Imagen de fondo */}
       <div className="absolute top-0 left-0 w-full h-full">
         <Image
           src="/Petronas.avif"
@@ -16,10 +15,9 @@ const HeroSection = () => {
           style={{ objectFit: "cover" }}
           quality={100}
         />
-        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay Oscuro */}
+        <div className="absolute inset-0 bg-black opacity-50"></div> 
       </div>
 
-      {/* Flecha de scroll */}
       <div className="absolute bottom-10 flex justify-center w-full">
         <FaArrowDown className="text-white text-3xl animate-bounce" />
       </div>
@@ -60,7 +58,6 @@ const HomeSection = () => {
         <Counter number={3} title="Awards Won" svgPath="/svg/award.svg" />
       </div>
 
-      {/* Celebración de 25 años integrada aquí */}
       <div className="mt-14 text-center">
         <h2 className="text-2xl md:text-4xl">Celebrating 25 Years of Excellence</h2>
         <p className="text-base md:text-xl max-w-3xl mx-auto mt-3 md:mt-4">
@@ -68,7 +65,6 @@ const HomeSection = () => {
           setting industry standards, and building lasting relationships. Join us as we continue our journey
           towards innovation and excellence.
         </p>
-        {/* Icono de brindis */}
         <div className="mt-4 md:mt-6">
           <Image src="/svg/anniversary.svg" width={200} height={200} alt="Brindis" className="mx-auto" />
         </div>

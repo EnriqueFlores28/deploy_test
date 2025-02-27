@@ -1,16 +1,16 @@
-"use client"; // 🔥 Necesario porque usamos hooks de React
+"use client"; 
 
 import { useRouter, usePathname } from "next/navigation";
 import { Home } from "lucide-react";
 
 const GoHome = () => {
   const router = useRouter();
-  const pathname = usePathname(); // Obtiene la ruta actual
+  const pathname = usePathname(); 
 
-  if (pathname === "/") return null; // No renderiza el botón en Home
+  if (pathname === "/") return null; 
 
   const goToHome = () => {
-    router.push("/"); // 🔥 Redirige al home
+    router.push("/"); 
   };
 
   return (

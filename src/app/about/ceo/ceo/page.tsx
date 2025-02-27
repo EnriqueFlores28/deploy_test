@@ -11,13 +11,11 @@ const CEOMessage = () => {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-start relative bg-gray-100 pb-16">
-            {/* Hero Section - Half Screen Background */}
             <div
                 className="w-full h-[50vh] bg-cover bg-center"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
             ></div>
 
-            {/* Tabs Navigation - Adjusted to be below header */}
             <div className="w-full flex justify-center relative z-20 mt-[-280px]">
                 <div className="bg-white shadow-md rounded-full px-6 py-3 flex space-x-8">
                     <button
@@ -35,7 +33,6 @@ const CEOMessage = () => {
                 </div>
             </div>
 
-            {/* Content Section Overlapping Hero */}
             <div className="w-full flex justify-center relative mt-12 px-4">
                 <Card className="max-w-4xl w-full bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 relative z-10">
                     <Image

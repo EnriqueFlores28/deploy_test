@@ -1,4 +1,4 @@
-"use client"; // 👈 Esto soluciona el error
+"use client"; 
 
 import { useState, useEffect } from "react";
 import { ArrowUpCircle } from "lucide-react";
