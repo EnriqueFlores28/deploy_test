@@ -85,7 +85,7 @@ const Header = () => {
         <nav className={`lg:flex absolute lg:relative bg-primary lg:bg-transparent w-full lg:w-auto top-16 left-0 lg:top-0 lg:left-auto shadow-lg lg:shadow-none p-4 lg:p-0 transition-all duration-300 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"}`}>
           <ul className="lg:flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6">
             {[{
-              name: "about",
+              name: "about Us",
               links: [
                 { name: "Mission, Vision and Values", href: "/about/mission" },
                 { name: "CEO", href: "/about/ceo/ceo" },
