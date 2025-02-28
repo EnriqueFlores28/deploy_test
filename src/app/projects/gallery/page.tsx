@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const images = Array.from({ length: 31 }, (_, i) => `/final/Slide${i + 1}.JPG`);
+const images = Array.from({ length: 33 }, (_, i) => `/final/Slide${i + 1}.JPG`);
 
 export default function Gallery() {
   return (
