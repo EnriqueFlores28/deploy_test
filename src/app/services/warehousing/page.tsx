@@ -11,7 +11,7 @@ const slides = [
 
 const builds = [
   {
-    name: "CASAPIA WAREHOUSE 1",
+    name: "Casapia Warehouse 1",
     cdate: "2010",
     location: "Tijuana, México",
     area_m2: "13,112.12",
@@ -19,7 +19,7 @@ const builds = [
     mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2117.145440343131!2d-116.8095213!3d32.4621853!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d93f1391c8b4b9%3A0x50f5c75d0c6e95de!2sAlmac%C3%A9n%20Casapia!5e1!3m2!1ses-419!2smx!4v1740165106391!5m2!1ses-419!2smx"
   },
   {
-    name: "CASAPIA WAREHOUSE 2",
+    name: "Casapia Olivos Warehouse 2",
     cdate: "2021",
     location: "Tijuana, México",
     area_m2: "18,883.17",
@@ -27,7 +27,7 @@ const builds = [
     mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1722.6980745057715!2d-116.85706165504568!3d32.4594776773662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDI3JzM0LjMiTiAxMTbCsDUxJzIyLjciVw!5e1!3m2!1ses-419!2smx!4v1740441158969!5m2!1ses-419!2smx"
   },
   {
-    name: "CASAPIA WAREHOUSE 3",
+    name: "Casapia Warehouse 3",
     cdate: "2024",
     location: "Tijuana, México",
     area_m2: "8,877.71",
