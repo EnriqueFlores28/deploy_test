@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section className="relative w-full h-screen flex items-center justify-center">
       <div className="absolute top-0 left-0 w-full h-full">
         <Image
-          src="/Petronas.avif"
+          src="/hero.jpg"
           alt="Hero Background"
           fill
           style={{ objectFit: "cover" }}
